@@ -4,9 +4,10 @@
 
 <script>
 import * as Three from 'three';
-// import {
-//     OrbitControls
-// } from 'three/examples/jsm/controls/OrbitControls';
+import Stats from 'three/examples/jsm/libs/stats.module.js';
+import {
+    OrbitControls
+} from 'three/examples/jsm/controls/OrbitControls.js';
 
 export default {
     name: 'HelloThree',
@@ -17,7 +18,9 @@ export default {
             camera: null,
             scene: null,
             renderer: null,
-            mesh: null
+            mesh: null,
+            stats: null,
+            controls: null,
         }
     },
     methods: {
@@ -41,6 +44,16 @@ export default {
             this.renderer.setSize(container.clientWidth, container.clientHeight);
             container.appendChild(this.renderer.domElement);
 
+            this.stats = new Stats();
+            this.stats.domElement.style.position = 'absolute';
+            this.stats.domElement.style.top = '0px';
+            container.appendChild(this.stats.domElement);
+
+        },
+
+        initControls: function () {
+            this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+
         },
 
         onWindowResize: function () {
@@ -51,13 +64,17 @@ export default {
         },
         animate: function () {
             requestAnimationFrame(this.animate)
-            this.mesh.rotation.x += 0.01
-            this.mesh.rotation.y += 0.02
+            this.mesh.rotation.x += 0.01;
+            this.mesh.rotation.y += 0.02;
+            this.stats.update();
+            this.controls.update();
+
             this.renderer.render(this.scene, this.camera)
         }
     },
     mounted() {
         this.init()
+        this.initControls();
         this.animate()
     },
     created() {
