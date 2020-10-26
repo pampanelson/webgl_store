@@ -1,15 +1,16 @@
 <template>
 <div id="app">
-    <HelloThree />
+    <ThreeLabels />
 </div>
 </template>
 
 <script>
-import HelloThree from './components/HelloThree.vue'
+// import HelloThree from './components/HelloThree.vue'
+import ThreeLabels from './components/ThreeLabels'
 export default {
     name: 'App',
     components: {
-        HelloThree
+        ThreeLabels
     }
 }
 </script>
