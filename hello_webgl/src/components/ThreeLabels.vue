@@ -115,10 +115,10 @@ export default {
             div.innerHTML = "hi there!";
             div.style.top = -1000;
             div.style.left = -1000;
-
+            div.id = new Date().getTime();
             var _this = this;
             div.onclick = function () {
-                console.log('div clicked ' + _this.parent);
+                console.log('div clicked ' + div.id);
 
             };
             return {

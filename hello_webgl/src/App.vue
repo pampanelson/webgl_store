@@ -1,17 +1,19 @@
 <template>
 <div id="app">
-    <HelloShader />
+    <ThreeLabels />
 </div>
 </template>
 
 <script>
 // import HelloThree from './components/HelloThree.vue'
-// import ThreeLabels from './components/ThreeLabels'
-import HelloShader from './components/shaders/HelloShader.vue'
+import ThreeLabels from './components/ThreeLabels.vue'
+// import HelloShader from './components/shaders/HelloShader.vue'
 export default {
     name: 'App',
     components: {
-        HelloShader
+        // HelloShader
+        ThreeLabels
+
     }
 }
 </script>
