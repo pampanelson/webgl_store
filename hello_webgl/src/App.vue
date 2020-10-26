@@ -7,7 +7,7 @@
 <script>
 // import HelloThree from './components/HelloThree.vue'
 // import ThreeLabels from './components/ThreeLabels'
-import HelloShader from './components/HelloShader.vue'
+import HelloShader from './components/shaders/HelloShader.vue'
 export default {
     name: 'App',
     components: {
